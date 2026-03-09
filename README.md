@@ -1,122 +1,83 @@
-```markdown
-# 🌍 Wanderlust
+````markdown
+<h1 align="center">🌍 Wanderlust</h1>
 
-**Wanderlust** is a full-stack **Airbnb inspired web application** where users can explore travel destinations, create listings, upload images, and leave reviews.
+<p align="center">
+An Airbnb-inspired full stack web application for discovering and sharing travel stays.
+</p>
 
-🔗 **Live Demo:**  
-https://wanderlust-7fd4.onrender.com/listings
+<p align="center">
+<a href="https://wanderlust-7fd4.onrender.com/listings"><strong>🌐 Live Demo</strong></a> |
+<a href="https://github.com/KuldeepLakhera9/Wanderlust"><strong>📂 Repository</strong></a>
+</p>
 
-🔗 **GitHub Repository:**  
-https://github.com/KuldeepLakhera9/Wanderlust
+<p align="center">
+<img src="https://img.shields.io/github/stars/KuldeepLakhera9/Wanderlust?style=social"/>
+<img src="https://img.shields.io/github/forks/KuldeepLakhera9/Wanderlust?style=social"/>
+<img src="https://img.shields.io/github/issues/KuldeepLakhera9/Wanderlust"/>
+</p>
 
 ---
 
 ## ✨ Features
 
-- Browse travel listings
-- Create new property listings
-- Edit and delete listings
-- Add reviews and ratings
-- User authentication (Signup / Login / Logout)
-- Image uploads using Cloudinary
-- Interactive maps using Mapbox
+- 🏡 Browse travel listings  
+- ➕ Create property listings  
+- ✏️ Edit and delete listings  
+- ⭐ Add reviews and ratings  
+- 🔐 User authentication (Signup / Login / Logout)  
+- 🖼 Image upload using Cloudinary  
+- 🗺 Map integration using Mapbox  
 
 ---
 
 ## 🛠 Tech Stack
 
 **Frontend**
-- HTML
-- CSS
-- Bootstrap
-- EJS
+
+HTML • CSS • Bootstrap • EJS  
 
 **Backend**
-- Node.js
-- Express.js
+
+Node.js • Express.js  
 
 **Database**
-- MongoDB
-- Mongoose
 
-**Other Tools**
-- Passport.js (Authentication)
-- Multer (File Upload)
-- Cloudinary (Image Hosting)
-- Mapbox (Maps)
+MongoDB • Mongoose  
+
+**Tools**
+
+Passport.js • Multer • Cloudinary • Mapbox  
 
 ---
 
 ## ⚙️ Installation
 
-Clone the repository
-
-```
-
+```bash
 git clone https://github.com/KuldeepLakhera9/Wanderlust.git
-
-```
-
-Go to the project folder
-
-```
-
 cd Wanderlust
-
-```
-
-Install dependencies
-
-```
-
 npm install
-
-```
-
-Run the application
-
-```
-
 node app.js
+````
+
+Open in browser:
 
 ```
-
-Open in browser
-
-```
-
 http://localhost:3000
-
-```
-
----
-
-## 🔐 Environment Variables
-
-Create a `.env` file and add:
-
-```
-
-ATLASDB_URL=your_mongodb_url
-SECRET=session_secret
-MAPBOX_TOKEN=your_mapbox_token
-CLOUDINARY_CLOUD_NAME=your_cloud_name
-CLOUDINARY_KEY=your_key
-CLOUDINARY_SECRET=your_secret
-
 ```
 
 ---
 
 ## 👨‍💻 Author
 
-**Kuldeep Lakhera**  
-B.Tech CSE | Full Stack Developer
+**Kuldeep Lakhera**
+B.Tech Computer Science
 
-GitHub:  
+GitHub:
 https://github.com/KuldeepLakhera9
 
 ---
 
-⭐ If you like this project, please give it a star!
+⭐ If you like this project, give it a star!
+
+```
 ```
