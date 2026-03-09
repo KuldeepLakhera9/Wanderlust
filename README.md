@@ -1,99 +1,101 @@
 ```markdown
-# 🌍 Wanderlust – Full Stack Airbnb Clone
+<!-- PROJECT BANNER -->
+<h1 align="center">🌍 Wanderlust</h1>
+<h3 align="center">Full Stack Airbnb Clone</h3>
 
-<div align="center">
+<p align="center">
+Discover unique stays around the world 🏡
+</p>
 
-## 🏡 Discover Unique Stays Around the World
+<p align="center">
 
-A **Full Stack Airbnb-inspired web application** where users can explore destinations, create property listings, upload images, and leave reviews.
+<img src="https://img.shields.io/github/stars/KuldeepLakhera9/Wanderlust?style=for-the-badge"/>
+<img src="https://img.shields.io/github/forks/KuldeepLakhera9/Wanderlust?style=for-the-badge"/>
+<img src="https://img.shields.io/github/issues/KuldeepLakhera9/Wanderlust?style=for-the-badge"/>
+<img src="https://img.shields.io/github/repo-size/KuldeepLakhera9/Wanderlust?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge"/>
 
-Built using **Node.js, Express.js, MongoDB, and EJS** with authentication, image uploads, and interactive maps.
-
-<br>
-
-![GitHub repo size](https://img.shields.io/github/repo-size/KuldeepLakhera9/Wanderlust?color=blue)
-![GitHub stars](https://img.shields.io/github/stars/KuldeepLakhera9/Wanderlust)
-![GitHub forks](https://img.shields.io/github/forks/KuldeepLakhera9/Wanderlust)
-![GitHub issues](https://img.shields.io/github/issues/KuldeepLakhera9/Wanderlust)
-![License](https://img.shields.io/badge/license-MIT-green)
-
-</div>
+</p>
 
 ---
 
 # 🚀 Live Demo
 
-🌐 **Website**  
+### 🌐 Website
 https://wanderlust-7fd4.onrender.com/listings
 
-📂 **GitHub Repository**  
+### 📂 GitHub Repository
 https://github.com/KuldeepLakhera9/Wanderlust
+
+---
+
+# 🧠 About The Project
+
+**Wanderlust** is a full-stack Airbnb-inspired web application where users can explore travel destinations, create property listings, upload images, and leave reviews.
+
+This project demonstrates **full stack development using Node.js, Express, MongoDB, and EJS** along with authentication, image uploads, and map integration.
 
 ---
 
 # ✨ Features
 
-✔️ Browse travel listings  
-✔️ Create new property listings  
-✔️ Edit listings  
-✔️ Delete listings  
+✅ Browse travel listings  
+✅ Create new property listings  
+✅ Edit listings  
+✅ Delete listings  
 
-✔️ Add reviews and ratings  
-✔️ Delete reviews  
+✅ Add reviews and ratings  
+✅ Delete reviews  
 
-✔️ User Authentication  
-- Signup  
-- Login  
-- Logout  
+✅ User authentication  
+• Signup  
+• Login  
+• Logout  
 
-✔️ Image uploads using **Cloudinary**   
-✔️ Flash messages and error handling  
-✔️ Secure authorization middleware  
+✅ Image upload with Cloudinary  
+✅ Map integration using Mapbox  
+✅ Flash messages & error handling  
+✅ Authorization middleware
 
 ---
 
 # 🛠 Tech Stack
 
-## Frontend
-- HTML
-- CSS
-- Bootstrap
-- EJS (Embedded JavaScript Templates)
+### Frontend
+<p>
+<img src="https://skillicons.dev/icons?i=html,css,bootstrap" />
+</p>
 
-## Backend
-- Node.js
-- Express.js
+### Backend
+<p>
+<img src="https://skillicons.dev/icons?i=nodejs,express" />
+</p>
 
-## Database
-- MongoDB
-- Mongoose
+### Database
+<p>
+<img src="https://skillicons.dev/icons?i=mongodb" />
+</p>
 
-## Authentication
-- Passport.js
-- Express-session
-
-## Other Tools
-- Cloudinary (Image Hosting)
-- Multer (File Uploads)
-- Connect-flash (Flash Messages)
+### Tools
+<p>
+<img src="https://skillicons.dev/icons?i=git,github,vscode" />
+</p>
 
 ---
 
-# 📸 Project Screenshots
+# 📸 Screenshots
 
-### 🏠 Listings Page
+### Listings Page
 
-![Listings](screenshots/listings.png)
+<img src="screenshots/listings.png"/>
 
-### ➕ Create Listing
+### Create Listing
 
-![Create](screenshots/create.png)
+<img src="screenshots/create.png"/>
 
-### ⭐ Reviews
+### Reviews
 
-![Reviews](screenshots/review.png)
-
-*(Create a folder named **screenshots** and add your images there)*
+<img src="screenshots/review.png"/>
 
 ---
 
@@ -115,9 +117,6 @@ Wanderlust
 ├── controllers
 │
 ├── views
-│   ├── listings
-│   ├── reviews
-│   └── users
 │
 ├── public
 │   ├── css
@@ -128,7 +127,7 @@ Wanderlust
 ├── app.js
 └── package.json
 
-````
+```
 
 ---
 
@@ -136,68 +135,86 @@ Wanderlust
 
 Clone the repository
 
-```bash
+```
+
 git clone https://github.com/KuldeepLakhera9/Wanderlust.git
-````
+
+```
+
+Move to the project folder
+
+```
+
+cd Wanderlust
+
+```
 
 Install dependencies
 
-```bash
+```
+
 npm install
+
 ```
 
 Run the application
 
-```bash
+```
+
 node app.js
-```
-
-Open your browser and go to
 
 ```
+
+Open browser
+
+```
+
 http://localhost:3000
+
 ```
 
 ---
 
 # 🔐 Environment Variables
 
-Create a **.env** file in the root directory and add:
+Create a `.env` file and add:
 
 ```
+
 ATLASDB_URL=your_mongodb_url
 
 SECRET=session_secret
 
+MAPBOX_TOKEN=your_mapbox_token
 
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_KEY=your_key
 CLOUDINARY_SECRET=your_secret
+
 ```
 
 ---
 
 # 📚 What I Learned
 
-Through this project I learned:
-
-✔ Full Stack Web Development
-✔ RESTful Routing
-✔ MVC Architecture
-✔ Authentication using Passport.js
-✔ MongoDB database design
-✔ Image uploads using Multer & Cloudinary
-✔ Deploying applications using Render
+✔ Full Stack Web Development  
+✔ RESTful Routing  
+✔ MVC Architecture  
+✔ Authentication using Passport.js  
+✔ MongoDB Database Design  
+✔ Cloudinary Image Storage  
+✔ Mapbox Integration  
+✔ Deployment using Render  
 
 ---
 
 # 🚀 Future Improvements
 
-* Payment integration
-* Booking system
-* Wishlist feature
-* Advanced search filters
-* Better mobile responsiveness
+• Booking system  
+• Payment integration  
+• Wishlist feature  
+• Advanced search filters  
+• Improved mobile responsiveness  
 
 ---
 
@@ -205,20 +222,17 @@ Through this project I learned:
 
 **Kuldeep Lakhera**
 
-🎓 B.Tech CSE Student
-💻 Aspiring Full Stack Developer
+B.Tech Computer Science Student  
+Aspiring Full Stack Developer
 
-GitHub:
+GitHub  
 https://github.com/KuldeepLakhera9
 
 ---
 
 # ⭐ Support
 
-If you like this project, please **give it a star ⭐ on GitHub**.
-It motivates me to build more amazing projects.
+If you like this project, please **star ⭐ the repository**.
 
----
-
-```
+It motivates me to build more amazing projects 🚀
 ```
