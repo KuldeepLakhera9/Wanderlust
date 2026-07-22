@@ -50,7 +50,9 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2 rounded-4">
               <li><span class="dropdown-item-text fw-bold border-bottom pb-2">Logged in as @<%= currUser.username %></span></li>
+              <li><a class="dropdown-item py-2" href="/bookings"><i class="fa-solid fa-suitcase me-2 text-danger"></i>My Booked Stays</a></li>
               <li><a class="dropdown-item py-2" href="/wishlist"><i class="fa-solid fa-heart me-2 text-danger"></i>Saved Wishlist</a></li>
+              <li><a class="dropdown-item py-2" href="/host/dashboard"><i class="fa-solid fa-chart-line me-2 text-danger"></i>Host Dashboard</a></li>
               <li><a class="dropdown-item py-2" href="/listings/new"><i class="fa-solid fa-plus me-2 text-danger"></i>Add New Listing</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item py-2 text-danger" href="/logout"><i class="fa-solid fa-right-from-bracket me-2"></i>Logout</a></li>

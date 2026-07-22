@@ -28,5 +28,6 @@ router.get("/logout", userController.logout);
 
 router.get("/wishlist", isLoggedIn, wrapAsync(userController.renderWishlist));
 router.post("/wishlist/toggle", isLoggedIn, wrapAsync(userController.toggleWishlist));
+router.get("/host/dashboard", isLoggedIn, wrapAsync(userController.renderDashboard));
 
 module.exports = router;
