@@ -581,3 +581,85 @@ footer {
   color: #fff;
   transform: scale(1.1);
 }
+
+/* AI Travel Concierge Widget */
+.ai-widget-button-wrapper {
+  position: fixed;
+  bottom: 2.5rem;
+  right: 1.8rem;
+  z-index: 1040;
+}
+
+#aiWidgetToggle {
+  background: linear-gradient(135deg, #ff385c 0%, #e00b41 100%) !important;
+  border: none !important;
+  transition: var(--transition);
+}
+
+#aiWidgetToggle:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 56, 92, 0.4) !important;
+}
+
+.ai-chat-drawer {
+  position: fixed;
+  bottom: 6.5rem;
+  right: 1.8rem;
+  width: 380px;
+  max-width: calc(100vw - 2.5rem);
+  height: 520px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1045;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18) !important;
+}
+
+.ai-chat-header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.ai-avatar-icon {
+  width: 34px;
+  height: 34px;
+  background: linear-gradient(135deg, #ff385c 0%, #e00b41 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.ai-chat-stream {
+  flex: 1;
+  overflow-y: auto;
+  background: #f8fafc;
+}
+
+.chip-btn {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  color: var(--dark);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.chip-btn:hover {
+  background: var(--primary-light);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.fs-8 {
+  font-size: 0.75rem !important;
+}

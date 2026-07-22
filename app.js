@@ -110,6 +110,8 @@ app.use((req, res, next) => {
 //   res.send(registeredUser);
 // });
 
+const aiRouter = require("./routes/ai.js");
+
 app.get("/", (req, res) => {
   res.redirect("/listings");
 });
@@ -118,6 +120,7 @@ app.use("/listings", listingsRouter);
 app.use("/listings/:id/reviews", reviewsRouter);
 app.use("/", bookingRouter);
 app.use("/", userRouter);
+app.use("/", aiRouter);
 
 app.use((req, res, next) => {
   next(new ExpressError(404, "Page not found"));
