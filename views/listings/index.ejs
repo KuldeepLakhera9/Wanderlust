@@ -82,7 +82,8 @@
     <a href="/listings" class="btn btn-danger rounded-pill px-4 mt-2">Explore All Listings</a>
   </div>
 <% } else { %>
-  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4 mt-1 mb-5">
+  <!-- Grid View -->
+  <div id="listings-grid-view" class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4 mt-1 mb-5">
     <% for(let listing of allListings) { %>
       <div class="col">
         <a href="/listings/<%= listing._id %>" class="listing-link">
@@ -112,4 +113,23 @@
       </div>
     <% } %>
   </div>
+
+  <!-- Map View Container (Hidden initially) -->
+  <div id="listings-map-view" class="d-none mt-3 mb-5">
+    <div id="allMap" style="height: 600px;" class="rounded-4 shadow"></div>
+  </div>
+
+  <!-- Floating Map Toggle Button -->
+  <div class="floating-map-toggle">
+    <button id="toggleViewBtn" class="btn btn-dark rounded-pill px-4 py-2 shadow-lg fw-bold d-flex align-items-center gap-2">
+      <i class="fa-solid fa-map" id="toggleIcon"></i>
+      <span id="toggleText">Show map</span>
+    </button>
+  </div>
 <% } %>
+
+<!-- Embedded Listing Data for Leaflet Map -->
+<script>
+  window.allListingsData = <%- JSON.stringify(allListings) %>;
+</script>
+<script src="/js/map.js"></script>

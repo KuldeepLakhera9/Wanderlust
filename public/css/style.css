@@ -539,3 +539,45 @@ footer {
 .f-info-brand {
   font-size: 0.88rem;
 }
+
+/* Floating Map View Toggle Button */
+.floating-map-toggle {
+  position: fixed;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1020;
+}
+
+.floating-map-toggle button {
+  background: var(--dark) !important;
+  color: #fff !important;
+  border: none !important;
+  transition: var(--transition);
+}
+
+.floating-map-toggle button:hover {
+  transform: scale(1.06);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.4) !important;
+}
+
+/* Price Badge Marker on Map */
+.price-badge-marker .badge-pill {
+  background: #fff;
+  color: var(--dark);
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 4px 10px;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  border: 1px solid #cbd5e1;
+  text-align: center;
+  white-space: nowrap;
+  transition: var(--transition);
+}
+
+.price-badge-marker:hover .badge-pill {
+  background: var(--primary);
+  color: #fff;
+  transform: scale(1.1);
+}
