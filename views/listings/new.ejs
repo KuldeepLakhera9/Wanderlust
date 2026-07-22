@@ -1,44 +1,68 @@
+<% layout("/layouts/boilerplate") %>
 
-    <% layout("/layouts/boilerplate") %>
-    <div class="row">
-        <div class="col-8 offset-2">
-    <h3>Create a new Listing</h3>
-    <form method="post" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+<div class="row my-4">
+  <div class="col-lg-8 offset-lg-2">
+    <div class="form-card">
+      <h3 class="fw-bold mb-4"><i class="fa-solid fa-house-circle-check text-danger me-2"></i>Create a New Listing</h3>
+      
+      <form method="post" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
         <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
-            <input type="text" name="Listing[title]" placeholder="Add a catchy title" class="form-control" required>
-            <div class="valid-feedback">Title looks good!</div>
-            <div class="invalid-feedback">Please enter valid title</div>
+          <label for="title" class="form-label fw-semibold">Listing Title</label>
+          <input type="text" name="Listing[title]" placeholder="e.g. Cozy Beachfront Villa in Goa" class="form-control" required>
+          <div class="valid-feedback">Title looks great!</div>
+          <div class="invalid-feedback">Please provide a catchy title.</div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="category" class="form-label fw-semibold">Category</label>
+            <select name="Listing[category]" id="category" class="form-select" required>
+              <option value="Trending" selected>Trending</option>
+              <option value="Rooms">Rooms</option>
+              <option value="Iconic Cities">Iconic Cities</option>
+              <option value="Mountains">Mountains</option>
+              <option value="Castles">Castles</option>
+              <option value="Camping">Camping</option>
+              <option value="Farms">Farms</option>
+              <option value="Arctic">Arctic</option>
+              <option value="Domes">Domes</option>
+              <option value="Boats">Boats</option>
+              <option value="Pools">Pools</option>
+            </select>
+          </div>
+          <div class="col-md-6 mt-3 mt-md-0">
+            <label for="price" class="form-label fw-semibold">Price per Night (&#8377;)</label>
+            <input type="number" name="Listing[price]" placeholder="2500" class="form-control" min="0" required>
+            <div class="invalid-feedback">Please enter a valid price per night.</div>
+          </div>
         </div>
         
         <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
-            <textarea type="text" name="Listing[description]" class="form-control" required></textarea>
-            <div class="invalid-feedback">Please enter valid description</div>
+          <label for="description" class="form-label fw-semibold">Description</label>
+          <textarea name="Listing[description]" rows="4" placeholder="Describe the ambiance, views, and unique amenities..." class="form-control" required></textarea>
+          <div class="invalid-feedback">Please provide a description.</div>
         </div>
+
         <div class="mb-3">
-            <label for="image" class="form-label">Upload Image</label>
-            <input type="file" name="Listing[image]" placeholder="Enter image URL/Link" class="form-control" >
+          <label for="image" class="form-label fw-semibold">Listing Cover Image</label>
+          <input type="file" name="Listing[image]" class="form-control">
         </div>
-        <div class="row">
-        <div class="mb-3 col-md-4">
-            <label for="price" class="form-label">Price</label>
-            <input name="Listing[price]" placeholder="1200" class="form-control" required>
-            <div class="invalid-feedback">Please enter valid price</div>
+
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <label for="location" class="form-label fw-semibold">Location / City</label>
+            <input type="text" name="Listing[location]" placeholder="e.g. North Goa, Anjuna" class="form-control" required>
+            <div class="invalid-feedback">Please specify the location.</div>
+          </div>
+          <div class="col-md-6 mt-3 mt-md-0">
+            <label for="country" class="form-label fw-semibold">Country</label>
+            <input type="text" name="Listing[country]" placeholder="e.g. India" class="form-control" required>
+            <div class="invalid-feedback">Please enter valid country name.</div>
+          </div>
         </div>
-        <div class="mb-3 col-md-8">
-            <label for="country" class="form-label">Country</label>
-            <input type="text" name="Listing[country]" placeholder="India" class="form-control" required>
-            <div class="invalid-feedback">Please enter valid country</div>
-        </div>
-        </div>
-        <div class="mb-3">
-            <label for="location" class="form-label">Location</label>
-            <input type="text" name="Listing[location]" placeholder="Rajisthan, Gujarat" class="form-control" required>
-            <div class="invalid-feedback">Please enter valid Location</div>
-        </div>
-        <button class="btn btn-dark add-btn">Add</button>
-        <br><br>
-    </form>
+
+        <button class="btn btn-danger btn-reserve py-3 fw-bold">Publish Listing</button>
+      </form>
     </div>
+  </div>
 </div>

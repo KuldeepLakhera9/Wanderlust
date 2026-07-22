@@ -42,3 +42,31 @@ module.exports.logout = (req, res, next) => {
     res.redirect("/listings");
   });
 };
+
+module.exports.renderWishlist = async (req, res) => {
+  const user = await User.findById(req.user._id).populate("wishlist");
+  res.render("users/wishlist.ejs", { wishlist: user.wishlist || [] });
+};
+
+module.exports.toggleWishlist = async (req, res) => {
+  const { listingId } = req.body;
+  const user = await User.findById(req.user._id);
+
+  if (!user) {
+    return res.status(401).json({ error: "Please log in to save stays" });
+  }
+
+  const index = user.wishlist.indexOf(listingId);
+  let saved = false;
+
+  if (index > -1) {
+    user.wishlist.splice(index, 1);
+    saved = false;
+  } else {
+    user.wishlist.push(listingId);
+    saved = true;
+  }
+
+  await user.save();
+  res.json({ saved, message: saved ? "Added to Wishlist" : "Removed from Wishlist" });
+};

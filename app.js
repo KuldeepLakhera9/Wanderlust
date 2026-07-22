@@ -21,20 +21,32 @@ const listingsRouter = require("./routes/listing.js");
 const reviewsRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
-// const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
-const dbUrl = process.env.ATLASDB_URL;
+const ATLASDB_URL = process.env.ATLASDB_URL;
+const LOCAL_URL = "mongodb://127.0.0.1:27017/wanderlust";
 
-main()
-  .then(() => {
-    console.log("Connected to DB");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+async function connectToDatabase() {
+  if (ATLASDB_URL) {
+    try {
+      const conn = await mongoose.connect(ATLASDB_URL, { serverSelectionTimeoutMS: 4000 });
+      console.log("Connected to MongoDB Atlas DB");
+      return conn.connection.getClient();
+    } catch (err) {
+      console.log("MongoDB Atlas Connection Failed:", err.message);
+      console.log("Falling back to local MongoDB...");
+    }
+  }
 
-async function main() {
-  await mongoose.connect(dbUrl);
+  try {
+    const conn = await mongoose.connect(LOCAL_URL, { serverSelectionTimeoutMS: 4000 });
+    console.log("Connected to Local MongoDB (mongodb://127.0.0.1:27017/wanderlust)");
+    return conn.connection.getClient();
+  } catch (err) {
+    console.log("Local MongoDB Connection Failed:", err.message);
+    throw err;
+  }
 }
+
+const dbClientPromise = connectToDatabase();
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -44,9 +56,9 @@ app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
 const store = MongoStore.create({
-  mongoUrl: dbUrl,
+  clientPromise: dbClientPromise,
   crypto: {
-    secret: process.env.SECRET,
+    secret: process.env.SECRET || "wanderlustsecret",
   },
   touchAfter: 24 * 3600,
 });
@@ -57,7 +69,7 @@ store.on("error", (err) => {
 
 const sessionOptions = {
   store,
-  secret: process.env.SECRET,
+  secret: process.env.SECRET || "wanderlustsecret",
   resave: false,
   saveUninitialized: true,
   cookie: {

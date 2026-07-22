@@ -1,0 +1,53 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container my-4">
+  <div class="d-flex align-items-center justify-content-between mb-4">
+    <div>
+      <h2 class="fw-bold mb-1"><i class="fa-solid fa-heart text-danger me-2"></i>Your Saved Wishlist</h2>
+      <p class="text-muted mb-0">Places you've saved for future trips</p>
+    </div>
+    <a href="/listings" class="btn btn-outline-dark rounded-pill px-4 fw-semibold">
+      <i class="fa-solid fa-compass me-2"></i>Explore More
+    </a>
+  </div>
+
+  <% if (wishlist.length === 0) { %>
+    <div class="text-center py-5 my-4 bg-white rounded-4 border shadow-sm">
+      <div class="display-3 text-muted mb-3"><i class="fa-regular fa-heart"></i></div>
+      <h4 class="fw-bold">Your wishlist is empty</h4>
+      <p class="text-muted">As you search, click the heart icon on any stay to save your favorite places here.</p>
+      <a href="/listings" class="btn btn-danger rounded-pill px-4 mt-2">Start Exploring</a>
+    </div>
+  <% } else { %>
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4 mb-5">
+      <% for(let listing of wishlist) { %>
+        <div class="col">
+          <a href="/listings/<%= listing._id %>" class="listing-link">
+            <div class="card listing-card h-100">
+              <div class="card-img-wrapper">
+                <span class="category-badge"><%= listing.category || 'Trending' %></span>
+                <button class="wishlist-btn" data-id="<%= listing._id %>" title="Remove from wishlist">
+                  <i class="fa-solid fa-heart text-danger"></i>
+                </button>
+                <img src="<%= listing.image ? listing.image.url : 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e' %>" class="card-img-top" alt="<%= listing.title %>">
+              </div>
+
+              <div class="card-body">
+                <h5 class="card-title-text"><%= listing.title %></h5>
+                <div class="card-location-text">
+                  <i class="fa-solid fa-location-dot me-1 text-danger"></i><%= listing.location %>, <%= listing.country %>
+                </div>
+                <div class="card-price-text base-price" data-raw-price="<%= listing.price %>">
+                  &#8377;<%= listing.price ? listing.price.toLocaleString("en-IN") : 'N/A' %> <span class="text-muted fs-7">/ night</span>
+                </div>
+                <div class="tax-info">
+                  +18% GST &bull; Total &#8377;<%= listing.price ? Math.round(listing.price * 1.18).toLocaleString("en-IN") : 'N/A' %>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      <% } %>
+    </div>
+  <% } %>
+</div>

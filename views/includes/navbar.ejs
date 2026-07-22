@@ -1,49 +1,62 @@
-<style>
-  .btn-search{
-    background-color: #fe424d;
-    color: #fff;
-    border-radius: 25px;
-    padding: 0 1rem 0 1rem;
-  }
-  .btn-search:hover{
-    background-color: #fe424d;
-    color: #fff;
-  }
-  .btn-search i{
-    display: inline;
-    margin-right: 0.5rem;
-  }
-  .search-input{
-    border-radius: 25px;
-    padding: 0.5rem 3rem 0.5rem 3rem;
-  }
-</style>
+<nav class="navbar navbar-expand-md border-bottom sticky-top">
+  <div class="container-fluid px-md-4">
+    <!-- Brand Logo -->
+    <a class="navbar-brand d-flex align-items-center gap-2" href="/listings">
+      <i class="fa-regular fa-compass"></i>
+      <span class="brand-title">wanderlust</span>
+    </a>
 
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" >
+    <!-- Mobile Menu Toggle Button -->
+    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" href="/listings">Explore</a>
+      <!-- Search Form -->
+      <div class="navbar-nav mx-auto my-2 my-md-0">
+        <form class="d-flex align-items-center search-input-group" action="/listings" method="GET" role="search">
+          <input 
+            class="form-control search-input" 
+            type="search" 
+            name="q" 
+            placeholder="Search destinations, cities, villas..." 
+            value="<%= typeof searchQuery !== 'undefined' ? searchQuery : '' %>"
+            aria-label="Search"
+          />
+          <button class="btn btn-search" type="submit">
+            <i class="fa-solid fa-magnifying-glass me-1"></i>Search
+          </button>
+        </form>
       </div>
-      <div class="navbar-nav ms-auto">
-        <form class="d-flex" role="search">
-      <input class="form-control me-2 search-input" type="search" placeholder="Search Destinations"/>
-      <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
-    </form>
-      </div>
-       <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="/listings/new">Airbnb your home</a>
+
+      <!-- User Navigation Links -->
+      <div class="navbar-nav ms-auto align-items-md-center gap-2">
+        <a class="nav-link" href="/listings/new">
+          <i class="fa-solid fa-house-medical me-1 text-danger"></i>Wanderlust your home
+        </a>
+
         <% if(!currUser) { %>
-        <a class="nav-link "  href="/signup"> <b>Signup</b></a>
-        <a class="nav-link" href="/login"><b>Login</b></a>
-        <%}%>
+          <a class="nav-link" href="/signup">Signup</a>
+          <a class="nav-link px-3 btn btn-outline-dark rounded-pill fw-semibold" href="/login">Login</a>
+        <% } %>
+
         <% if(currUser) { %>
-        <a class="nav-link" href="/logout"><b>Logout</b></a>
-        <%}%>
+          <div class="dropdown">
+            <button class="user-avatar-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-bars"></i>
+              <div class="reviewer-avatar small" style="width:28px; height:28px; font-size:0.8rem; background-color:#ff385c; color:#fff;">
+                <%= currUser.username ? currUser.username.charAt(0).toUpperCase() : 'U' %>
+              </div>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2 rounded-4">
+              <li><span class="dropdown-item-text fw-bold border-bottom pb-2">Logged in as @<%= currUser.username %></span></li>
+              <li><a class="dropdown-item py-2" href="/wishlist"><i class="fa-solid fa-heart me-2 text-danger"></i>Saved Wishlist</a></li>
+              <li><a class="dropdown-item py-2" href="/listings/new"><i class="fa-solid fa-plus me-2 text-danger"></i>Add New Listing</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item py-2 text-danger" href="/logout"><i class="fa-solid fa-right-from-bracket me-2"></i>Logout</a></li>
+            </ul>
+          </div>
+        <% } %>
       </div>
     </div>
   </div>

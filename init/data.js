@@ -10,6 +10,8 @@ const sampleListings = [
     price: 1500,
     location: "Malibu",
     country: "United States",
+    category: "Pools",
+    geometry: { type: "Point", coordinates: [-118.7798, 34.0259] },
   },
   {
     title: "Modern Loft in Downtown",
@@ -22,6 +24,8 @@ const sampleListings = [
     price: 1200,
     location: "New York City",
     country: "United States",
+    category: "Iconic Cities",
+    geometry: { type: "Point", coordinates: [-74.006, 40.7128] },
   },
   {
     title: "Mountain Retreat",
@@ -34,6 +38,8 @@ const sampleListings = [
     price: 1000,
     location: "Aspen",
     country: "United States",
+    category: "Mountains",
+    geometry: { type: "Point", coordinates: [-106.837, 39.1911] },
   },
   {
     title: "Historic Villa in Tuscany",
@@ -46,6 +52,8 @@ const sampleListings = [
     price: 2500,
     location: "Florence",
     country: "Italy",
+    category: "Castles",
+    geometry: { type: "Point", coordinates: [11.2558, 43.7696] },
   },
   {
     title: "Secluded Treehouse Getaway",
@@ -58,6 +66,8 @@ const sampleListings = [
     price: 800,
     location: "Portland",
     country: "United States",
+    category: "Camping",
+    geometry: { type: "Point", coordinates: [-122.6784, 45.5152] },
   },
   {
     title: "Beachfront Paradise",
@@ -70,6 +80,8 @@ const sampleListings = [
     price: 2000,
     location: "Cancun",
     country: "Mexico",
+    category: "Trending",
+    geometry: { type: "Point", coordinates: [-86.8515, 21.1619] },
   },
   {
     title: "Rustic Cabin by the Lake",
@@ -82,6 +94,8 @@ const sampleListings = [
     price: 900,
     location: "Lake Tahoe",
     country: "United States",
+    category: "Farms",
+    geometry: { type: "Point", coordinates: [-120.0324, 39.0968] },
   },
   {
     title: "Luxury Penthouse with City Views",
@@ -94,6 +108,8 @@ const sampleListings = [
     price: 3500,
     location: "Los Angeles",
     country: "United States",
+    category: "Rooms",
+    geometry: { type: "Point", coordinates: [-118.2437, 34.0522] },
   },
   {
     title: "Ski-In/Ski-Out Chalet",
@@ -106,6 +122,8 @@ const sampleListings = [
     price: 3000,
     location: "Verbier",
     country: "Switzerland",
+    category: "Arctic",
+    geometry: { type: "Point", coordinates: [7.2286, 46.0968] },
   },
   {
     title: "Safari Lodge in the Serengeti",
@@ -118,6 +136,8 @@ const sampleListings = [
     price: 4000,
     location: "Serengeti National Park",
     country: "Tanzania",
+    category: "Domes",
+    geometry: { type: "Point", coordinates: [34.8333, -2.3333] },
   },
 ];
 
