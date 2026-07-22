@@ -2,25 +2,35 @@ const Listing = require("../models/listing");
 
 module.exports.chat = async (req, res) => {
   try {
-    const { message } = req.body;
+    const message = req.body && req.body.message ? req.body.message : "";
     if (!message) {
       return res.status(400).json({ error: "Message is required" });
     }
 
     const queryLower = message.toLowerCase();
 
-    // 1. Extract potential price limits from message (e.g. "under 5000" or "below 3000")
+    // 1. Extract potential price limits from message (e.g. "under 5000" or "below 3000" or "under 5k")
     let maxPrice = null;
-    const priceMatch = queryLower.match(/(?:under|below|less than|budget of)\s*(?:₹|rs\.?|inr)?\s*(\d+)/i);
+    const priceMatch = queryLower.match(/(?:under|below|less than|budget of)\s*(?:₹|rs\.?|inr)?\s*(\d+k?)/i);
     if (priceMatch && priceMatch[1]) {
-      maxPrice = parseInt(priceMatch[1]);
+      let rawP = priceMatch[1].toLowerCase();
+      if (rawP.endsWith("k")) {
+        maxPrice = parseInt(rawP.replace("k", "")) * 1000;
+      } else {
+        maxPrice = parseInt(rawP);
+      }
     }
 
     // 2. Extract category matches
     const categories = ["Trending", "Rooms", "Iconic Cities", "Mountains", "Castles", "Camping", "Farms", "Arctic", "Domes", "Boats", "Pools"];
     let matchedCategory = null;
     for (let cat of categories) {
-      if (queryLower.includes(cat.toLowerCase()) || (cat === "Pools" && queryLower.includes("pool"))) {
+      const catLower = cat.toLowerCase();
+      if (
+        queryLower.includes(catLower) || 
+        (cat === "Pools" && queryLower.includes("pool")) || 
+        (cat === "Mountains" && (queryLower.includes("mountain") || queryLower.includes("cabin")))
+      ) {
         matchedCategory = cat;
         break;
       }
@@ -47,7 +57,7 @@ module.exports.chat = async (req, res) => {
       }
     }
 
-    if (matchedKeyword) {
+    if (matchedKeyword && !matchedCategory) {
       const searchRegex = new RegExp(matchedKeyword, "i");
       filter.$or = [
         { title: searchRegex },
